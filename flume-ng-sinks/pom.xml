@@ -30,6 +30,10 @@ limitations under the License.
   <name>Flume NG Sinks</name>
   <packaging>pom</packaging>
 
+  <properties>
+    <flume.sink.kudu.enabled>true</flume.sink.kudu.enabled>
+  </properties>
+
   <modules>
     <module>flume-hdfs-sink</module>
     <module>flume-irc-sink</module>
@@ -50,6 +54,10 @@ limitations under the License.
         <os>
           <arch>amd64</arch>
         </os>
+        <property>
+          <name>flume.sink.kudu.enabled</name>
+          <value>true</value>
+        </property>
       </activation>
       <modules>
         <!-- kudu-binary.jar is available only for x86_64 systems
