@@ -21,7 +21,7 @@ jobs:
   include:
     - name: "Linux amd64"
       arch: amd64
-      dist: trusty
+      dist: bionic
     - name: "Linux aarch64"
       arch: arm64-graviton2
       dist: focal
