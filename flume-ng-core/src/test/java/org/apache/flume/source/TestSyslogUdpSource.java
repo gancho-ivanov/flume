@@ -301,8 +301,10 @@ public class TestSyslogUdpSource {
 
     Map<String, String> headers = e.getHeaders();
 
-    checkHeader(headers, testClientIPHeader, InetAddress.getLoopbackAddress().getHostAddress());
-    checkHeader(headers, testClientHostnameHeader, InetAddress.getLoopbackAddress().getHostName());
+    InetAddress loopbackAddress = InetAddress.getLoopbackAddress();
+    InetSocketAddress inetLoopbackAddress = new InetSocketAddress(loopbackAddress, 0);
+    checkHeader(headers, testClientIPHeader, SyslogUtils.getIP(inetLoopbackAddress));
+    checkHeader(headers, testClientHostnameHeader, SyslogUtils.getHostname(inetLoopbackAddress));
   }
 
   private static void checkHeader(Map<String, String> headers, String headerName,
