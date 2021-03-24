@@ -42,4 +42,4 @@ before_install:
 install: true
 
 script:
-  - MAVEN_OPTS="-Xms1024m -Xmx1024m" ./mvnw verify --quiet --fail-fast
+  - MAVEN_OPTS="-Xms1024m -Xmx1024m" ./mvnw verify --fail-fast --threads 2.0C --projects "!flume-ng-tests"
